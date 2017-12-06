@@ -7,7 +7,7 @@
   <div  slot="left" @click="history.go(-1)"><mt-button icon="back" v-on:click="$router.go(-1)">back</mt-button></div>
   <mt-button icon="more" slot="right"></mt-button>
 </mt-header>
-  <div class="mui-content">
+  <div class="mui-content mui-content1">
     <!-- <h1 @click="info" :class="color">{{ msg }}</h1> -->
 
     <!-- <mt-cell :title="item.title" v-for="item in list">

@@ -55,8 +55,35 @@ module.exports = {
     // Paths
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
-    assetsPublicPath: '/',
-
+    assetsPublicPath: './',
+	module: {
+    loaders: [
+      {
+        test: /\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\.vue$/,
+        loader: 'vue'
+      },
+      {
+        test: /\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\.js$/,
+        loader: 'babel',
+        exclude: /node_modules/
+      },
+      {
+          test: /\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\.css$/,
+          loader: "style!css"
+      },
+      {
+        test: /\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\.(eot|woff|woff2|ttf)([\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\?]?.*)$/,
+        loader: "file"
+      },
+      {
+        test: /\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\.(png|jpg|gif|svg)$/,
+        loader: 'file',
+        query: {
+          name: '[name].[ext]?[hash]'
+        }
+      }
+    ]
+  },
     /**
      * Source Maps
      */

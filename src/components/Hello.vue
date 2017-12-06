@@ -18,7 +18,7 @@
 
     </div>
 </div>
-  <div class="mui-content">
+  <div class="mui-content mui-content1">
     <!-- <h1 @click="info" :class="color">{{ msg }}</h1> -->
 
     <!-- <mt-cell :title="item.title" v-for="item in list">
@@ -36,7 +36,7 @@
      <mt-loadmore  :bottom-method="loadBottom"  ref="loadmore" >
         <div class="mui-card"  >
             <ul class="mui-table-view" >
-              <li class="mui-table-view-cell mui-table" v-for="item in list"  @click="goRouter1(item.id)">
+              <li class="mui-table-view-cell mui-table mui-table1" v-for="item in list"  @click="goRouter1(item.id)">
                   <img class="mui-media-object mui-pull-right mui-text-right" :src="item.author.avatar_url">
                   <div class=" mui-table-cell mui-col-xs-10 mui-text-left">
                     <div class='mui-ellipsis'>{{item.title}}</div>
@@ -126,7 +126,6 @@ export default {
     watch: {
     '$route' (to, from) {
     //刷新参数放到这里里面去触发就可以刷新相同界面了
-    alert(this.$route.query.tab);
     console.log(this.$route.query.tab);
     var tab=this.$route.query.tab;
     this.getList(tab,10);
@@ -247,12 +246,12 @@ export default {
         color:#630;
     }
 
-    .mui-content{
+    .mui-content1{
       background-color: #fff;
       padding-top: 44px
     }
      
-    .mui-table{
+    .mui-table1{
       display: flex
     }
       .hello{

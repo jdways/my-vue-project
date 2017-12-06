@@ -20,8 +20,36 @@ const webpackConfig = merge(baseWebpackConfig, {
     rules: utils.styleLoaders({
       sourceMap: config.build.productionSourceMap,
       extract: true,
-      usePostCSS: true
+      usePostCSS: true,
+	    loaders: [
+      {
+        test: /\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\.vue$/,
+        loader: 'vue'
+      },
+      {
+        test: /\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\.js$/,
+        loader: 'babel',
+        exclude: /node_modules/
+      },
+      {
+          test: /\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\.(css|svg)$/,
+          loader: "style!css"
+      },
+      {
+        test: /\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\.(eot|woff|woff2|ttf)([\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\?]?.*)$/,
+        loader: "file"
+      },
+      {
+        test: /\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\.(png|jpg|gif|svg)$/,
+        loader: 'file',
+        query: {
+          name: '[name].[ext]?[hash]'
+        }
+      }
+    ]
     })
+	
+	
   },
   devtool: config.build.productionSourceMap ? config.build.devtool : false,
   output: {
